@@ -1,0 +1,340 @@
+<% layout('layouts/boilerplate.ejs') -%>
+
+<div>
+  <form action="/register" class="needs-validation" method="post" novalidate>
+    <!-- NAME -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Student's Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="user[name]"
+        required
+      />
+      <div class="invalid-feedback">Please enter your name!</div>
+    </div>
+
+    <div class="row">
+      <!-- Mother's Name -->
+      <div class="mb-3 col-md-6">
+        <label for="mother-name" class="form-label">Mother's Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="mother-name"
+          name="user[motherName]"
+          required
+        />
+        <div class="invalid-feedback">Please enter your mother's name!</div>
+      </div>
+
+      <!-- Father's Name -->
+      <div class="mb-3 col-md-6">
+        <label for="father-name" class="form-label">Father's Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="father-name"
+          name="user[fatherName]"
+          required
+        />
+        <div class="invalid-feedback">Please enter your father's name!</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- COURSE -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label" for="course">Highest Qualification</label>
+        <select
+          class="form-select"
+          id="course"
+          name="user[highestQualification]"
+          required
+        >
+          <option selected value="">Select course</option>
+          <option value="Bachelors">Bachelors</option>
+          <option value="HSC">12th</option>
+          <!-- TODO : Update course list dropdown -->
+        </select>
+        <div class="invalid-feedback">Please select your study course!</div>
+      </div>
+
+      <!-- EDU YEAR -->
+      <!-- <div class="mb-3 col-md-4">
+        <label class="form-label" for="edu-year">Current Education Year</label>
+        <select class="form-select" id="edu-year" name="user[eduYear]" required>
+          <option selected value="">Select year</option>
+          <option value="1">1st</option>
+          <option value="2">2nd</option>
+          <option value="3">3rd</option>
+        </select>
+        <div class="invalid-feedback">Please select your educational year!</div>
+      </div> -->
+
+      <!-- ABC ID -->
+      <div class="mb-3 col-md-4">
+        <label for="abc-id" class="form-label">ABC ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="abc-id"
+          name="user[abcId]"
+          placeholder="Enter ABC ID"
+          required
+        />
+        <div class="invalid-feedback">Please enter your ABC ID!</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- GENDER -->
+      <div class="mb-3 col-md-4">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-select" id="gender" name="user[gender]" required>
+          <option value="" selected>Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <div class="invalid-feedback">Please enter your ABC ID!</div>
+      </div>
+
+      <!-- Marital Status -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label" for="marital-status">Marital Status</label>
+        <select
+          class="form-select"
+          id="marital-status"
+          name="user[maritalStatus]"
+          required
+        >
+          <option value="" selected>Select</option>
+          <option value="Married">Married</option>
+          <option value="Unmarried">Unmarried</option>
+        </select>
+        <div class="invalid-feedback">Please select your marital status!</div>
+      </div>
+
+      <!-- Reli ion -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label" for="religion">Religion</label>
+        <select
+          class="form-select"
+          id="religion"
+          name="user[religion]"
+          required
+        >
+          <option value="" selected>Select religion</option>
+          <option value="Hindu">Hindu</option>
+          <option value="Muslim">Muslim</option>
+        </select>
+        <div class="invalid-feedback">Please select your religion!</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- District -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label" for="district">District</label>
+        <select
+          class="form-select"
+          id="district"
+          name="user[district]"
+          required
+        >
+          <option value="" selected>Select district</option>
+          <option value="Parbhani">Parbhani</option>
+          <option value="Nanded">Nanded</option>
+          <!-- TODO: Update District list with state dropdown -->
+        </select>
+        <div class="invalid-feedback">Please select your district (city)</div>
+      </div>
+
+      <!-- State -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label" for="state">State</label>
+        <select class="form-select" id="state" name="user[state]" required>
+          <option value="" selected>Select state</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Telangana">Telangana</option>
+          <!-- TODO: Update state list dropdown -->
+        </select>
+        <div class="invalid-feedback">Please select your state!</div>
+      </div>
+
+      <!-- Country -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label" for="country">Country</label>
+        <select class="form-select" id="country" name="user[country]" required>
+          <option selected value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="Yaman">Yaman</option>
+        </select>
+        <div class="invalid-feedback">Please your country!</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- DOB -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label">Date of Birth &lpar;DOB&rpar;</label>
+        <div
+          id="datepicker"
+          class="input-group date"
+          data-date-format="dd-mm-yyyy"
+        >
+          <input
+            class="form-control"
+            type="text"
+            name="user[dob]"
+            readonly
+            required
+          />
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- MOTHER TONGUE -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label" for="mother-tongue">Mother Tongue</label>
+        <select
+          class="form-select"
+          id="mother-tongue"
+          name="user[motherTongue]"
+          required
+        >
+          <option selected value="Hindi">Hindi</option>
+          <option value="Urdu">Urdu</option>
+          <option value="Marathi">Marathi</option>
+        </select>
+        <div class="invalid-feedback">Please your country!</div>
+      </div>
+
+      <!-- PHONE -->
+      <div class="mb-3 col-md-4">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input
+          type="number"
+          class="form-control"
+          id="phone"
+          name="user[phone]"
+          required
+        />
+        <div class="invalid-feedback">Please enter your contact number!</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- EMAIL -->
+      <div class="mb-3 col-md-6">
+        <label for="email" class="form-label"
+          >Email address &lpar;username&rpar;
+        </label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="user[email]"
+          aria-describedby="emailHelp"
+          required
+        />
+        <div class="invalid-feedback">Please enter your email id!</div>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="mb-3 col-md-6">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="user[password]"
+          id="password"
+          required
+        />
+        <div class="invalid-feedback">
+          Please set password for your account!
+        </div>
+      </div>
+    </div>
+
+    <!-- T & C  -->
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="exampleCheck1"
+        required
+      />
+      <label class="form-check-label" for="exampleCheck1"
+        >Accepts the Terms & Conditions.</label
+      >
+    </div>
+
+    <!-- BTN SUBMIT  -->
+    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+  </form>
+  <div class="mb-3">
+    <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
+</div>
+
+<script>
+  (() => {
+    "use strict";
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll(".needs-validation");
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"
+></script>
+
+<script>
+  $(function () {
+    $("#datepicker")
+      .datepicker({
+        autoclose: true,
+        todayHighlight: true,
+        todayBtn: "linked",
+        title: "Select DOB",
+      })
+      .datepicker("update", new Date());
+  });
+</script>
+<!-- 1st - Date Picker -->
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+></script>
+<!-- 2nd - Date Picker -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+></script>
+<!-- 3rd - Date Picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
